@@ -3,12 +3,13 @@
   <div class="container">
 <h1>Home</h1>
 <p><%=hData%></p>
-<% posts.forEach(function(ele){ %>
+<% for(let i=posts.length-1;i>=0;i--){ %>
+  <% let ele=posts[i]%>
   <h2><%=ele.title%></h2>
   <p><%=ele.data.substring(0,100)%>... 
   <a href="/posts/<%=ele.title%>">Read more</a></p>
   
-<% })%> 
+<% }%> 
 <div class="add-post" onclick="location.href='/compose'">
   <i class="fa fa-add"></i>
 </div>

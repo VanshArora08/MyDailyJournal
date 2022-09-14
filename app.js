@@ -5,14 +5,15 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require('lodash');
 const mongoose=require('mongoose');
-mongoose.connect("mongodb://localhost:27017/journal");
+mongoose.connect("mongodb+srv://VanshArora08:VanshArora246763@cluster0.za09vlx.mongodb.net/journal");
 
 const dailySchema=new mongoose.Schema({
   title:String,
   data:String
 })
 
-const password=process.env.ADMIN_PASSWORD;
+const AdminPassword="Insane@4101441014";
+const viewPassword="YouAreTheBest";
 const Day=mongoose.model("Day",dailySchema);
 
 const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
@@ -44,7 +45,7 @@ app.get("/",function(req,res){
     .toString()
     .split(":");
 
-  if (!(username === "Insane" && password === "Insane@4101441014")) {
+  if (!((username == "Insane"||username=="LetMeSee") && (password==AdminPassword || password==viewPassword))) {
     return reject();
   }
   Day.find({},function(err,foundItems){
@@ -66,7 +67,7 @@ app.get("/compose",function(req,res){
   res.render("compose.ejs");
 })
 app.post("/compose",function(req,res){
-  if(req.body.password==password){
+  if(req.body.password==AdminPassword){
     const newDay=new Day({
       title: req.body.composedTitle,
       data : req.body.composedData
@@ -95,7 +96,7 @@ app.get('/delete',function(req,res){
 
 app.post("/delete",function(req,res){
   let pass=req.body.passwordEntered;
-  if(pass==password){
+  if(pass==AdminPassword){
     let titleDel=req.body.titleToDelete;
     Day.deleteOne({title:titleDel}).then(function(){
       console.log("Data deleted"); // Success
@@ -110,7 +111,7 @@ app.post("/delete",function(req,res){
 
 app.post('/login',function(req,res){
   let passwordEntered=req.body.passEntered;
-  if(passwordEntered==password){
+  if(passwordEntered==AdminPassword){
     authenticated=true;
   }
   res.redirect('/');  
