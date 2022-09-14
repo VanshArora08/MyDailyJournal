@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %> 
+<body>
+  <div class="container">
+<h1>Home</h1>
+<p><%=hData%></p>
+<% posts.forEach(function(ele){ %>
+  <h2><%=ele.title%></h2>
+  <p><%=ele.data.substring(0,100)%>... 
+  <a href="/posts/<%=ele.title%>">Read more</a></p>
+  
+<% })%> 
+<div class="add-post" onclick="location.href='/compose'">
+  <i class="fa fa-add"></i>
+</div>
+<div class="remove-post" onclick="location.href='/delete'">
+  <i class="fa fa-trash"></i>
+</div>
+</div>
+
+
+<div class="footer-padding"></div>
+  <div class="footer">
+    <p>Made with ❤️ by InSaNe</p>
+  </div>
+</div>
+</body>
+</html>

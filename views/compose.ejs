@@ -1,0 +1,40 @@
+<%- include("partials/header") -%>
+<body>
+  <div class="container">
+
+<h1>Compose</h1>
+<form action="/compose" method="post">
+  <div class="form-group">
+    <label for="composedTitle">Title</label>
+    <input class="form-control" type="text" name="composedTitle" id="composedTitle">
+    <label for="password">Password</label>
+    <input class="form-control" type="password" name="password" id="password">
+    <label for="composedData">Post</label>
+    <textarea class="form-control" name="composedData" id="composedData" rows="5"></textarea>
+  </div>
+  <input type="submit" value="Publish" class="btn btn-primary">
+  
+</form>
+</div>
+
+
+<!-- 
+<form action="/compose" method="post">
+  <div class="form-group">
+    <label for="basic-url">Title</label>
+    <input class="form-control" type="text" name="postTitle">
+    <label for="basic-url">Post</label>
+    <textarea class="form-control" name="postBody" rows="5" cols="160"></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit" name="button">Publish</button>
+</form> -->
+
+
+
+<div class="footer-padding"></div>
+  <div class="footer">
+    <p>Made with ❤️ by InSaNe</p>
+  </div>
+</div>
+</body>
+</html>

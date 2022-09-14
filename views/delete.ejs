@@ -1,0 +1,25 @@
+<%- include("partials/header") -%>
+<body>
+  <div class="container">
+
+<form action="/delete" method="post">
+    <div class="form-group">
+      <label for="composedTitle">Title to be deleted</label>
+      <input class="form-control" type="text" name="titleToDelete" id="titleToDelete">
+      <label for="composedData">Password</label>
+      <input type="password" class="form-control" name="passwordEntered" id="passwordEntered"></input>
+    </div>
+    <input type="submit" value="Delete" class="btn btn-danger">
+    
+  </form>
+</div>
+
+
+
+<div class="footer-padding"></div>
+  <div class="footer">
+    <p>Made with ❤️ by InSaNe</p>
+  </div>
+</div>
+</body>
+</html>
