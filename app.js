@@ -6,7 +6,7 @@ require("dotenv").config();
 const ejs = require("ejs");
 const _ = require('lodash');
 const mongoose=require('mongoose');
-mongoose.connect("mongodb+srv://VanshArora08:VanshArora246763@cluster0.za09vlx.mongodb.net/journal");
+mongoose.connect(process.env.MONGO_URL);
 
 const dailySchema=new mongoose.Schema({
   title:String,
